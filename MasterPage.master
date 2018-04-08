@@ -1,0 +1,79 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>VIDEO.PL</title>
+    <link href="Stylesheets/style.css" rel="stylesheet" />
+    <link href="Stylesheets/hover.css" rel="stylesheet" />
+    <link href="Stylesheets/animate.css" rel="stylesheet" />
+    <link href="Stylesheets/owl.carousel.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.11.3.js"></script>
+    <script src="Scripts/owl.carousel.js"></script>
+    <script src="Scripts/owl.carousel.min.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+       <div id="wrapper" runat="server">
+           <div id="navigation" runat="server">
+               <a href="Default.aspx"><img class="hvr-bounce-in" id="logo" src="Images/ikona-video.jpg" /></a>
+         <ul id="menu">
+             <li><a runat="server" id="a1" class="hvr-grow" href="Default.aspx">STRONA GŁÓWNA</a></li>
+             <li><a runat="server" id="a2" class="hvr-grow" href="About.aspx">O NAS</a></li>
+             <li><a runat="server" id="a3" class="hvr-grow" href="Video.aspx">ASORTYMENT</a></li>
+             <li><a runat="server" id="a4" class="hvr-grow" href="Contact.aspx">KONTAKT</a></li>
+             <li>
+                 <asp:LoginStatus ID="LoginStatus1" runat="server" Font-Bold="False" LoginText="ZALOGUJ" LogoutText="WYLOGUJ" CssClass="hvr-grow" /></li>
+         </ul>
+               </div>
+        <div id="userinfo" runat="server">
+            <table class="auto-style1">
+                <tr>
+                    <td>
+                         <p style="float:left; display:inline; margin: 0px 15px 0px 30px;">Tu jesteś: </p>
+                        <asp:SiteMapPath ID="SiteMapPath1" runat="server" Font-Names="Arial">
+                            <CurrentNodeStyle Font-Bold="True" ForeColor="White" />
+                            <NodeStyle ForeColor="#9CD1D5" />
+                            <PathSeparatorStyle ForeColor="White" />
+                        </asp:SiteMapPath>
+                    </td>
+                    <td style="float: right; padding-right: 85px;">
+                        <asp:LoginView ID="LoginView1" runat="server">
+                            <AnonymousTemplate>
+                                Niezalogowany
+                            </AnonymousTemplate>
+                            <LoggedInTemplate>
+                                Zalogowany jako:&nbsp;&nbsp;<asp:LoginName ID="LoginName1" runat="server" Font-Bold="True" ForeColor="White" />
+                                &nbsp;
+                            </LoggedInTemplate>
+                        </asp:LoginView>
+                    </td>
+                </tr>
+            </table>
+           </div>
+         <div id="content">
+
+             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+             </asp:ContentPlaceHolder>
+
+         </div>
+         <div id="footer" runat="server">
+        
+         
+             <div id="copyrights" style="background-color:#727676; clear:both; height:auto;" runat="server">
+             <p style="font-weight:bold; color: white; padding: 20px;">Autorzy: Kisielewski, Waloszek, Wójtowicz</p>
+            </div>
+         </div>
+     </div>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('#up-button').click(function () {
+                $('html, body').animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+        });
+    </script>
+</body>
+</html>
